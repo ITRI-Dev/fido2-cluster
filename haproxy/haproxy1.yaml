@@ -1,0 +1,7 @@
+services:
+  haproxy1:
+    image: haproxytech/haproxy-alpine:latest
+    container_name: haproxy1
+    volumes:
+      - /home/k3d/haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+    network_mode: "host" 

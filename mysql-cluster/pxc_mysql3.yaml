@@ -1,0 +1,21 @@
+services:
+  pxc_mysql3:
+    image: percona/percona-xtradb-cluster:5.6
+    container_name: pxc_mysql3
+    privileged: true
+    restart: always
+    network_mode: host
+    environment:
+      MYSQL_ROOT_PASSWORD: Qazxsw23edc!!!
+      MYSQL_DATABASE: fido
+      MYSQL_USER: fido
+      MYSQL_PASSWORD: Qazx
+      CLUSTER_NAME: PXC
+      XTRABACKUP_PASSWORD: Qazxsw23edc!!!
+      CLUSTER_JOIN: 192.168.50.8
+
+      WSREP_SST_METHOD: xtrabackup-v2
+      PXC_STRICT_MODE: MASTER
+
+    volumes:
+      - ./v1pxc:/var/lib/mysql
